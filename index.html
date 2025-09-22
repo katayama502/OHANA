@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>オハナ放課後児童クラブ｜OHANA After School</title>
+  <meta name="description" content="小学1〜6年生対象・定員15名。ネイティブ講師と楽しむ英語アクティビティ、学習サポート、安心安全のアフタースクール。オプションで幼児向けプログラミングも。" />
+  <meta property="og:title" content="オハナ放課後児童クラブ" />
+  <meta property="og:description" content="小学1〜6年生対象・定員15名。ネイティブ講師と英語×学び×遊び。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ja_JP" />
+  <style>
+    :root{
+      --primary:#ff6f61; /* コーラル */
+      --secondary:#2a9d8f; /* ティール */
+      --accent:#ffd166; /* サンライト */
+      --ink:#233; /* 濃い文字色 */
+      --muted:#5b6b7a;
+      --bg:#fffdfb; /* あたたかい白 */
+      --card:#ffffff;
+      --shadow: 0 10px 18px rgba(0,0,0,.08);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; padding:0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", sans-serif; color:var(--ink); background:var(--bg);}
+    a{color:var(--secondary); text-decoration: none}
+    img{max-width:100%; display:block}
+    .container{width:min(1100px, 92%); margin:0 auto}
+
+    /* Header */
+    header{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.9); backdrop-filter: blur(8px); border-bottom:1px solid rgba(0,0,0,.06)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.5px}
+    .brand-mark{width:36px; height:36px; border-radius:50%; background: conic-gradient(from 180deg, var(--primary), var(--accent), var(--secondary)); box-shadow:var(--shadow); display:grid; place-items:center; color:#fff; font-weight:900}
+    nav ul{display:flex; gap:20px; list-style:none; padding:0; margin:0}
+    nav a{padding:8px 12px; border-radius:10px}
+    nav a:hover{background:rgba(42,157,143,.08)}
+    .cta-btn{background:var(--primary); color:#fff; padding:10px 16px; border-radius:12px; font-weight:700; box-shadow:var(--shadow)}
+    .cta-btn:hover{opacity:.92}
+
+    /* Hero */
+    .hero{position:relative; padding:72px 0 56px; background: radial-gradient(1200px 500px at 20% -10%, rgba(255,111,97,.15), transparent),
+                                     radial-gradient(900px 400px at 90% 10%, rgba(42,157,143,.12), transparent)}
+    .hero-grid{display:grid; gap:28px; grid-template-columns: 1.15fr .85fr; align-items:center}
+    .hero h1{font-size: clamp(28px, 5vw, 44px); line-height:1.2; margin:.2em 0}
+    .subtitle{font-size: clamp(15px, 1.8vw, 18px); color:var(--muted);}
+    .badge-row{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 26px}
+    .badge{background:#fff; border:1px solid rgba(0,0,0,.06); padding:8px 12px; border-radius:999px; font-weight:700; display:flex; align-items:center; gap:8px; box-shadow:var(--shadow)}
+    .hero-cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; gap:8px; border:none; cursor:pointer; padding:12px 16px; border-radius:12px; font-weight:700}
+    .btn-primary{background:var(--secondary); color:#fff}
+    .btn-secondary{background:#fff; color:var(--ink); border:1px solid rgba(0,0,0,.08)}
+    .hero-illu{position:relative; background:#fff; border-radius:var(--radius); padding:16px; box-shadow:var(--shadow);}
+    .hero-illu .tag{position:absolute; top:12px; left:12px; background:var(--accent); padding:6px 10px; border-radius:10px; font-weight:800}
+    .hero-illu .grid{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+    .mini-card{background:linear-gradient(180deg, #fff, #fff7f4); border:1px solid rgba(0,0,0,.06); border-radius:14px; padding:10px}
+    .mini-card h4{margin:2px 0 6px; font-size:14px}
+    .mini-card p{margin:0; font-size:12px; color:var(--muted)}
+
+    /* Sections */
+    section{padding:64px 0}
+    h2{font-size: clamp(22px, 3.6vw, 32px); margin:0 0 14px}
+    .lead{color:var(--muted); margin:0 0 24px}
+    .cards{display:grid; grid-template-columns:repeat(3, 1fr); gap:18px}
+    .card{background:var(--card); border:1px solid rgba(0,0,0,.06); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow)}
+    .card h3{margin:0 0 8px}
+    .chip{display:inline-block; padding:6px 10px; background:rgba(42,157,143,.1); color:var(--secondary); border-radius:999px; font-size:12px; font-weight:700}
+
+    /* Timeline */
+    .timeline{display:grid; gap:14px}
+    .time-item{display:grid; grid-template-columns:110px 1fr; gap:16px; align-items:flex-start}
+    .time-item time{font-weight:800; color:var(--secondary)}
+    .note{font-size:13px; color:var(--muted)}
+
+    /* Feature list */
+    .features{display:grid; grid-template-columns: repeat(2,1fr); gap:18px}
+    .feature{display:flex; gap:12px; align-items:flex-start; background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:14px; padding:14px; box-shadow:var(--shadow)}
+    .icon{width:38px; height:38px; border-radius:11px; background:var(--accent); display:grid; place-items:center; font-weight:900}
+
+    /* FAQ */
+    details{background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:14px 16px; box-shadow:var(--shadow)}
+    details+details{margin-top:10px}
+    summary{cursor:pointer; font-weight:800}
+
+    /* Contact */
+    form{display:grid; gap:12px}
+    label{font-size:14px; font-weight:700}
+    input, textarea{width:100%; padding:12px; border-radius:10px; border:1px solid rgba(0,0,0,.16)}
+    textarea{min-height:120px}
+    .form-row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+
+    /* Footer */
+    footer{background:#0f172a; color:#d7e0ea; padding:28px 0}
+    footer a{color:#d7e0ea; text-decoration:underline}
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+      .time-item{grid-template-columns:90px 1fr}
+      .form-row{grid-template-columns:1fr}
+      nav ul{display:none}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container nav" aria-label="トップナビゲーション">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">🌺</div>
+        <div>
+          <div style="font-size:14px; color:var(--muted); line-height:1">OHANA</div>
+          <div style="font-size:18px; font-weight:900">オハナ放課後児童クラブ</div>
+        </div>
+      </div>
+      <nav aria-label="サイト内メニュー">
+        <ul>
+          <li><a href="#about">はじめに</a></li>
+          <li><a href="#programs">プログラム</a></li>
+          <li><a href="#schedule">一日の流れ</a></li>
+          <li><a href="#features">安心・安全</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+        </ul>
+      </nav>
+      <a class="cta-btn" href="#contact" aria-label="見学予約へ">見学予約</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <h1>学校が終わったら、<br>オハナへ。英語×学び×あそび。</h1>
+        <p class="subtitle">小学<span aria-label="1年生から6年生">1〜6年生</span>対象のアフタースクール。<br>ネイティブ講師と自然にふれあう“英語時間”と、
+          宿題サポート・探究あそびで心も体も育てます。</p>
+        <div class="badge-row" aria-label="オハナの基本情報">
+          <span class="badge">👧 対象：小1〜小6</span>
+          <span class="badge">👥 定員：<strong>15名以内</strong></span>
+          <span class="badge">🕒 アフタースクール</span>
+          <span class="badge">🗣️ ネイティブ講師つき</span>
+          <span class="badge">💻 オプション：幼児向けプログラミング</span>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">見学を申し込む</a>
+          <a class="btn btn-secondary" href="#programs">プログラムを見る</a>
+        </div>
+      </div>
+      <div class="hero-illu" aria-label="活動イメージ">
+        <div class="tag">Today at OHANA</div>
+        <div class="grid" role="list">
+          <div class="mini-card" role="listitem">
+            <h4>English Fun Time</h4>
+            <p>ネイティブ講師とゲームで英語表現に親しむ</p>
+          </div>
+          <div class="mini-card" role="listitem">
+            <h4>Homework Support</h4>
+            <p>学年別テーブルで集中して宿題を片付け</p>
+          </div>
+          <div class="mini-card" role="listitem">
+            <h4>Creative Play</h4>
+            <p>クラフト・ボードゲーム・外遊びも</p>
+          </div>
+          <div class="mini-card" role="listitem">
+            <h4>Explore & Share</h4>
+            <p>今日の「できた！」をミニ発表で共有</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2>オハナについて</h2>
+      <p class="lead">“Ohana”はハワイの言葉で「家族」。
+        私たちは、放課後の時間を「安心・あたたかさ・挑戦」で満たし、
+        子どもたち一人ひとりの「好き」と「できた」を増やします。</p>
+      <div class="features" style="margin-top:18px">
+        <div class="feature">
+          <div class="icon">🧑‍🏫</div>
+          <div>
+            <strong>英語にふれる毎日</strong>
+            <div class="note">ネイティブ講師が常駐。あいさつや遊びの中で楽しく英語をインプット・アウトプット。</div>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="icon">📚</div>
+          <div>
+            <strong>学習サポート</strong>
+            <div class="note">宿題タイムを設定し、ていねいに見守り。学ぶ習慣づくりを大切にします。</div>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="icon">🤝</div>
+          <div>
+            <strong>少人数・個性重視</strong>
+            <div class="note">定員15名以内。小さなコミュニティで互いを尊重し合う関係を育てます。</div>
+          </div>
+        </div>
+        <div class="feature">
+          <div class="icon">🧩</div>
+          <div>
+            <strong>探究あそび</strong>
+            <div class="note">クラフト・実験・ボードゲーム・外遊びなど、多彩なアクティビティで「非認知能力」も伸ばします。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section id="programs">
+    <div class="container">
+      <h2>プログラム</h2>
+      <p class="lead">日々の学童プログラムに加え、英語アクティビティ、<br>ご希望に応じて<strong>幼児向けプログラミング（オプション）</strong>もご用意。</p>
+      <div class="cards" role="list">
+        <article class="card" role="listitem">
+          <span class="chip">毎日</span>
+          <h3>学童・生活サポート</h3>
+          <p>下校後の受け入れ／宿題サポート／おやつ／自由遊び／読み聞かせ など。生活の安心を第一に、好奇心を引き出します。</p>
+        </article>
+        <article class="card" role="listitem">
+          <span class="chip">英語 × あそび</span>
+          <h3>English Activity（ネイティブ）</h3>
+          <p>歌・ゲーム・会話を通じてナチュラルな表現に親しみます。発表やミニショー＆テルで、伝える力も育てます。</p>
+        </article>
+        <article class="card" role="listitem">
+          <span class="chip">オプション</span>
+          <h3>幼児向けプログラミング</h3>
+          <p>未就学児（ごきょうだい等）向けに、タブレットやビジュアル教材で「順番」「形づくり」など考える土台を楽しく学びます。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedule -->
+  <section id="schedule">
+    <div class="container">
+      <h2>一日の流れ（例）</h2>
+      <p class="lead">曜日や季節行事により変更があります。詳細は見学時にご案内します。</p>
+      <div class="timeline">
+        <div class="time-item">
+          <time>14:00〜</time>
+          <div>受け入れ開始・手洗い・健康チェック／リラックスタイム</div>
+        </div>
+        <div class="time-item">
+          <time>15:30</time>
+          <div>宿題タイム（学年別テーブル）／読書</div>
+        </div>
+        <div class="time-item">
+          <time>16:00</time>
+          <div>English Activity（ネイティブ講師）</div>
+        </div>
+        <div class="time-item">
+          <time>17:00</time>
+          <div>自由遊び・クラフト・外遊び</div>
+        </div>
+        <div class="time-item">
+          <time>18:00〜</time>
+          <div>お迎え</div>
+        </div>
+      </div>
+      <p class="note" style="margin-top:10px">※長期休みは特別カリキュラムや遠足などを実施する場合があります。</p>
+    </div>
+  </section>
+
+  <!-- Features/Safety -->
+  <section id="features">
+    <div class="container">
+      <h2>安心・安全への取り組み</h2>
+      <div class="features" style="margin-top:10px">
+        <div class="feature"><div class="icon">🛡️</div><div><strong>見守り体制</strong><div class="note">入退室チェック・連絡体制の明確化・最大15名の少人数で安全に配慮。</div></div></div>
+        <div class="feature"><div class="icon">🏠</div><div><strong>学年別ゾーニング</strong><div class="note">集中しやすい学習スペース／のびのび遊べるスペースを分けています。</div></div></div>
+        <div class="feature"><div class="icon">🧯</div><div><strong>衛生・防災</strong><div class="note">定期清掃・手洗い指導・避難訓練の実施。備蓄品の確認も行います。</div></div></div>
+        <div class="feature"><div class="icon">👨‍👩‍👧‍👦</div><div><strong>家庭との連携</strong><div class="note">日々の様子を共有。面談や個別相談で一人ひとりをより丁寧にサポート。</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2>よくある質問</h2>
+      <details>
+        <summary>対象年齢は？</summary>
+        <div>小学校<span aria-label="1年生から6年生">1〜6年生</span>です。見学は年中・年長のごきょうだい同伴も歓迎です。</div>
+      </details>
+      <details>
+        <summary>定員は？</summary>
+        <div>最大15名以内です（少人数制）。状況によりウェイティングとなる場合があります。</div>
+      </details>
+      <details>
+        <summary>ネイティブ講師は常駐ですか？</summary>
+        <div>英語アクティビティ時間を中心に、日々のコミュニケーションにも参加します。</div>
+      </details>
+      <details>
+        <summary>幼児向けプログラミングの対象は？</summary>
+        <div>未就学児（ごきょうだい等）向けの<strong>オプション</strong>です。個別に日程をご相談ください。</div>
+      </details>
+      <details>
+        <summary>開所日・料金は？</summary>
+        <div>最新の開所日・料金は見学時またはお問い合わせにてご案内します。</div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2>見学・お問い合わせ</h2>
+      <p class="lead">まずはお気軽にお問い合わせください。フォーム送信のほか、お電話・LINEでもどうぞ。</p>
+      <form action="mailto:info@example.com" method="post" enctype="text/plain" aria-label="お問い合わせフォーム">
+        <div class="form-row">
+          <div>
+            <label for="name">お名前</label>
+            <input id="name" name="お名前" required placeholder="例）山田 花子" />
+          </div>
+          <div>
+            <label for="email">メール</label>
+            <input id="email" type="email" name="メール" required placeholder="hanako@example.com" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="tel">お電話番号（任意）</label>
+            <input id="tel" name="電話" placeholder="090-xxxx-xxxx" />
+          </div>
+          <div>
+            <label for="visit">見学希望（任意）</label>
+            <input id="visit" name="見学希望日" placeholder="例）10/10 16:00 など" />
+          </div>
+        </div>
+        <div>
+          <label for="msg">ご質問・ご要望</label>
+          <textarea id="msg" name="メッセージ" placeholder="お子さまの学年・通学校名など"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">送信する</button>
+        <span class="note">※ 実運用では各種フォームサービスのご利用をおすすめします。</span>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; align-items:flex-start; gap:16px; flex-wrap:wrap; justify-content:space-between">
+        <div>
+          <div style="font-weight:800; font-size:18px">オハナ放課後児童クラブ</div>
+          <div class="note">〒000-0000 ○○県○○市○○町0-0（仮）／ 開所日・料金はお問い合わせください。</div>
+        </div>
+        <div class="note">© <span id="year"></span> OHANA After School</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 年号の自動更新
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // アンカーのスムーススクロール
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length > 1){
+          const el = document.querySelector(id);
+          if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+        }
+      })
+    })
+  </script>
+</body>
+</html>
