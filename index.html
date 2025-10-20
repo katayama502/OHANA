@@ -360,27 +360,6 @@ app.append(missionCard(10,"アップロード検証：拡張子偽装を通す",
   );
 }));
 
-/* ========= 学習のまとめ ========= */
-app.append(el('section',{class:'card'},[
-  el('header',{},[el('h2',{},["📚 学びのポイントまとめ"]), el('span',{class:'pill'},["OWASP Top 10 に接続"]) ]),
-  el('div',{class:'body cols'},[
-    el('div',{},[
-      el('p',{},["・XSS：innerHTMLに入れない。エスケープ・テンプレート・CSP。"]),
-      el('p',{},["・SQLi：文字列連結禁止、必ずプリペアドステートメント。"]),
-      el('p',{},["・CSRF：CSRFトークン、SameSite Cookie、確認ダイアログ。"]),
-      el('p',{},["・Clickjacking：", el('span',{class:'code'},["X-Frame-Options, frame-ancestors"]), "。"]),
-      el('p',{},["・Open Redirect：相対パス/許可ドメインのみに限定。"]),
-      el('p',{},["・IDOR：オブジェクト参照の前に認可チェック。"]),
-      el('p',{},["・Upload：MIME/シグネチャ検査、再エンコード、実行不可領域へ保存。"])
-    ]),
-    el('div',{},[
-      el('p',{class:'sub'},["授業での使い方："]),
-      el('p',{},["1) 10〜15分 自由攻略 → 2) 5分 ふりかえりスクショ → 3) 15分 対策コード例紹介 → 4) 5分 小テスト"]),
-      el('p',{},["先生用：進捗はバッジ表示のみ（スコアなし）。"])
-    ])
-  ])
-]));
-
 /* 初期レンダリング */
 renderHud();
 </script>
