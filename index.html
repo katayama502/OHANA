@@ -1,997 +1,388 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>オハナ放課後児童クラブ｜OHANA After School</title>
-  <meta name="description" content="小学1〜6年生対象・定員15名。ネイティブ講師と楽しむ英語アクティビティ、学習サポート、安心安全のアフタースクール。オプションで幼児向けプログラミングも。" />
-  <meta property="og:title" content="オハナ放課後児童クラブ" />
-  <meta property="og:description" content="小学1〜6年生対象・定員15名。ネイティブ講師と英語×学び×遊び。" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="ja_JP" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet" />
-  <style>
-    :root{
-      --primary:#ff8ba7;
-      --secondary:#5ec6ff;
-      --accent:#ffe17d;
-      --accent-2:#9becc5;
-      --accent-3:#d8b4fe;
-      --ink:#233041;
-      --muted:#5c6f82;
-      --bg:#fff7ef;
-      --card:#ffffff;
-      --shadow:0 18px 34px rgba(255,139,167,.22);
-      --radius:24px;
-    }
-    *{box-sizing:border-box;}
-    html,body{
-      margin:0;
-      padding:0;
-      font-family:'M PLUS Rounded 1c', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', sans-serif;
-      color:var(--ink);
-      background:var(--bg);
-      line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-    }
-    h1,h2,h3,h4{
-      font-family:'Baloo 2','M PLUS Rounded 1c',cursive;
-      font-weight:700;
-      margin:0;
-    }
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background:
-        radial-gradient(140px 140px at 15% 20%, rgba(255,255,255,.8) 0, rgba(255,255,255,0) 70%),
-        radial-gradient(220px 220px at 85% 12%, rgba(94,198,255,.18) 0, rgba(94,198,255,0) 70%),
-        radial-gradient(160px 160px at 25% 85%, rgba(255,225,125,.28) 0, rgba(255,225,125,0) 72%);
-      z-index:-1;
-    }
-    a{color:var(--secondary); text-decoration:none; font-weight:600;}
-    a:hover{text-decoration:underline;}
-    img{max-width:100%; display:block;}
-    .container{width:min(1100px,92%); margin:0 auto;}
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      background:rgba(255,255,255,.92);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid rgba(0,0,0,.04);
-      box-shadow:0 12px 24px rgba(32,49,70,.08);
-    }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:14px 0;
-      gap:16px;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      font-weight:800;
-      letter-spacing:.6px;
-    }
-    .brand-mark{
-      width:46px;
-      height:46px;
-      border-radius:50%;
-      background:conic-gradient(from 160deg,var(--primary),var(--accent),var(--secondary));
-      display:grid;
-      place-items:center;
-      color:#fff;
-      font-size:24px;
-      box-shadow:0 10px 18px rgba(255,139,167,.35);
-    }
-    nav ul{
-      display:flex;
-      gap:18px;
-      list-style:none;
-      padding:0;
-      margin:0;
-    }
-    nav a{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:9px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.6);
-      box-shadow:0 8px 14px rgba(94,198,255,.12);
-    }
-    nav a:hover{background:rgba(94,198,255,.18); text-decoration:none;}
-    .cta-btn{
-      background:linear-gradient(135deg,var(--primary),var(--accent));
-      color:#fff;
-      padding:11px 22px;
-      border-radius:999px;
-      font-weight:800;
-      box-shadow:0 14px 24px rgba(255,139,167,.35);
-      transition:transform .2s ease, box-shadow .2s ease;
-    }
-    .cta-btn:hover{
-      transform:translateY(-2px);
-      text-decoration:none;
-      box-shadow:0 18px 34px rgba(255,139,167,.4);
-    }
-
-    .hero{
-      position:relative;
-      padding:90px 0 70px;
-      overflow:hidden;
-      background:linear-gradient(135deg, rgba(255,139,167,.14), rgba(94,198,255,.16));
-    }
-    .hero::before{
-      content:"";
-      position:absolute;
-      width:340px;
-      height:340px;
-      top:-140px;
-      left:-90px;
-      background:radial-gradient(circle at center, rgba(255,255,255,.9), rgba(255,255,255,0));
-      z-index:0;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      width:260px;
-      height:260px;
-      bottom:-120px;
-      right:-60px;
-      background:radial-gradient(circle at center, rgba(155,236,197,.45), rgba(155,236,197,0));
-      z-index:0;
-    }
-    .hero-grid{
-      position:relative;
-      z-index:1;
-      display:grid;
-      gap:32px;
-      grid-template-columns:1.1fr .9fr;
-      align-items:center;
-    }
-    .hero h1{
-      font-size:clamp(30px, 5vw, 48px);
-      line-height:1.15;
-      color:#1e2432;
-    }
-    .hero h1 span{color:var(--primary);}
-    .subtitle{
-      font-size:clamp(16px, 1.9vw, 19px);
-      color:var(--muted);
-      margin-top:12px;
-    }
-    .hero-note{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 18px;
-      background:#fff;
-      border-radius:999px;
-      font-weight:700;
-      box-shadow:0 10px 20px rgba(35,48,65,.08);
-      margin-top:18px;
-      color:#ff6f8f;
-    }
-    .badge-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin:24px 0 28px;
-    }
-    .badge{
-      background:#fff;
-      padding:9px 14px;
-      border-radius:18px;
-      font-weight:700;
-      display:flex;
-      align-items:center;
-      gap:8px;
-      box-shadow:0 12px 24px rgba(35,48,65,.08);
-      border:2px dashed rgba(255,139,167,.3);
-    }
-    .hero-cta{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      border:none;
-      cursor:pointer;
-      padding:13px 18px;
-      border-radius:16px;
-      font-weight:800;
-      transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-    }
-    .btn-primary{
-      background:linear-gradient(135deg,var(--secondary),#8fd6ff);
-      color:#0f1e2d;
-      box-shadow:0 12px 24px rgba(94,198,255,.35);
-    }
-    .btn-primary:hover{
-      transform:translateY(-3px);
-      box-shadow:0 16px 34px rgba(94,198,255,.38);
-    }
-    .btn-secondary{
-      background:#fff;
-      color:var(--ink);
-      border:2px solid rgba(94,198,255,.35);
-      box-shadow:0 8px 18px rgba(35,48,65,.08);
-    }
-    .btn-secondary:hover{
-      transform:translateY(-3px);
-      box-shadow:0 12px 24px rgba(35,48,65,.12);
-    }
-    .hero-illu{
-      position:relative;
-      background:linear-gradient(160deg,#fff,rgba(255,247,238,.96));
-      border-radius:var(--radius);
-      padding:22px;
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-    .hero-illu::after{
-      content:"";
-      position:absolute;
-      width:120px;
-      height:120px;
-      background:radial-gradient(circle, rgba(216,180,254,.5), rgba(216,180,254,0));
-      bottom:-20px;
-      right:-10px;
-    }
-    .hero-illu .tag{
-      position:absolute;
-      top:16px;
-      left:16px;
-      background:linear-gradient(135deg,var(--secondary),var(--accent));
-      padding:6px 14px;
-      border-radius:14px;
-      font-weight:800;
-      color:#0f1e2d;
-      box-shadow:0 8px 20px rgba(94,198,255,.25);
-    }
-    .hero-illu .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-      margin-top:20px;
-    }
-    .mini-card{
-      background:linear-gradient(135deg,rgba(255,139,167,.16),rgba(255,139,167,.05));
-      border-radius:18px;
-      padding:14px;
-      border:1px solid rgba(255,139,167,.25);
-    }
-    .mini-card:nth-child(2n){
-      background:linear-gradient(135deg,rgba(94,198,255,.16),rgba(94,198,255,.05));
-      border-color:rgba(94,198,255,.25);
-    }
-    .mini-card h4{
-      margin:0 0 6px;
-      font-size:16px;
-    }
-    .mini-card p{
-      margin:0;
-      font-size:13px;
-      color:var(--muted);
-    }
-    .playmates{
-      display:flex;
-      gap:14px;
-      margin-top:26px;
-    }
-    .kid{
-      flex:1;
-      background:#fff;
-      border-radius:20px;
-      padding:14px;
-      text-align:center;
-      box-shadow:0 14px 26px rgba(35,48,65,.12);
-      position:relative;
-      overflow:hidden;
-      animation:floaty 5s ease-in-out infinite;
-    }
-    .kid:nth-child(2){animation-delay:1s; background:linear-gradient(180deg,#fff,rgba(94,198,255,.12));}
-    .kid:nth-child(3){animation-delay:2s; background:linear-gradient(180deg,#fff,rgba(155,236,197,.15));}
-    .kid span{
-      font-size:34px;
-      display:block;
-    }
-    .kid strong{
-      display:block;
-      margin-top:10px;
-      font-size:16px;
-      color:var(--ink);
-    }
-    .kid small{
-      display:block;
-      margin-top:6px;
-      font-size:12px;
-      color:var(--muted);
-    }
-    @keyframes floaty{
-      0%,100%{transform:translateY(0);}
-      50%{transform:translateY(-8px);}
-    }
-
-    section{
-      padding:72px 0;
-      position:relative;
-    }
-    .section-soft{
-      background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(255,247,236,.85));
-    }
-    .section-soft::before{
-      content:"";
-      position:absolute;
-      top:-30px;
-      left:50%;
-      transform:translateX(-50%);
-      width:120px;
-      height:6px;
-      border-radius:999px;
-      background:linear-gradient(90deg,var(--secondary),var(--accent));
-      opacity:.45;
-    }
-    .section-soft .container{position:relative; z-index:1;}
-    .section-fun{
-      background:linear-gradient(180deg,rgba(255,247,236,.92),rgba(155,236,197,.25));
-    }
-    .section-fun .container{position:relative; z-index:1;}
-    .section-white{background:#fff;}
-    .schedule-section{background:linear-gradient(180deg,rgba(94,198,255,.1),rgba(255,247,236,.9));}
-
-    h2{
-      font-size:clamp(26px, 3.8vw, 36px);
-      margin-bottom:14px;
-      color:#1f2534;
-    }
-    .lead{
-      color:var(--muted);
-      margin:0 0 28px;
-      font-size:16px;
-    }
-    .fun-header{
-      text-align:center;
-      margin-bottom:36px;
-    }
-    .fun-header .lead{
-      max-width:720px;
-      margin:0 auto;
-    }
-    .play-cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-    .play-card{
-      background:#fff;
-      border-radius:24px;
-      padding:24px 22px;
-      box-shadow:0 18px 34px rgba(35,48,65,.08);
-      border:2px dashed rgba(255,139,167,.25);
-      position:relative;
-      overflow:hidden;
-    }
-    .play-card::after{
-      content:"";
-      position:absolute;
-      width:120px;
-      height:120px;
-      bottom:-40px;
-      right:-20px;
-      background:radial-gradient(circle, rgba(94,198,255,.2), rgba(94,198,255,0));
-    }
-    .play-card:nth-child(2){border-color:rgba(94,198,255,.28);}
-    .play-card:nth-child(3){border-color:rgba(155,236,197,.28);}
-    .play-icon{
-      width:56px;
-      height:56px;
-      border-radius:16px;
-      background:linear-gradient(135deg,var(--primary),rgba(255,139,167,.55));
-      display:grid;
-      place-items:center;
-      font-size:30px;
-      margin-bottom:12px;
-      color:#fff;
-    }
-    .play-card:nth-child(2) .play-icon{
-      background:linear-gradient(135deg,var(--secondary),#8fd6ff);
-      color:#0f1e2d;
-    }
-    .play-card:nth-child(3) .play-icon{
-      background:linear-gradient(135deg,var(--accent-2),#d6ffe8);
-      color:#184427;
-    }
-    .play-card h3{
-      font-size:20px;
-      margin-bottom:8px;
-    }
-    .play-card p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-    }
-    .mini-gallery{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-      margin-top:34px;
-    }
-    .gallery-item{
-      background:rgba(255,255,255,.85);
-      border-radius:20px;
-      padding:18px;
-      box-shadow:0 14px 26px rgba(35,48,65,.08);
-      text-align:center;
-      border:1px solid rgba(0,0,0,.05);
-    }
-    .gallery-item span{
-      font-size:28px;
-      display:block;
-      margin-bottom:10px;
-    }
-    .gallery-item strong{
-      display:block;
-      font-size:16px;
-      margin-bottom:6px;
-    }
-    .gallery-item p{
-      margin:0;
-      font-size:13px;
-      color:var(--muted);
-    }
-
-    .features{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:18px;
-    }
-    .feature{
-      display:flex;
-      gap:12px;
-      align-items:flex-start;
-      background:rgba(255,255,255,.9);
-      border:1px solid rgba(0,0,0,.04);
-      border-radius:20px;
-      padding:18px;
-      box-shadow:0 12px 24px rgba(35,48,65,.08);
-    }
-    .icon{
-      width:44px;
-      height:44px;
-      border-radius:14px;
-      background:linear-gradient(135deg,var(--accent-3),rgba(216,180,254,.35));
-      display:grid;
-      place-items:center;
-      font-weight:900;
-      font-size:22px;
-    }
-    .note{font-size:13px; color:var(--muted);}
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-    .card{
-      background:#fff;
-      border-radius:24px;
-      padding:24px;
-      box-shadow:0 18px 34px rgba(35,48,65,.08);
-      border:1px solid rgba(0,0,0,.04);
-      position:relative;
-      overflow:hidden;
-    }
-    .card::before{
-      content:"";
-      position:absolute;
-      width:110px;
-      height:110px;
-      top:-50px;
-      right:-30px;
-      background:radial-gradient(circle, rgba(255,139,167,.25), rgba(255,139,167,0));
-    }
-    .card:nth-child(2)::before{background:radial-gradient(circle, rgba(94,198,255,.25), rgba(94,198,255,0));}
-    .card:nth-child(3)::before{background:radial-gradient(circle, rgba(155,236,197,.25), rgba(155,236,197,0));}
-    .card h3{font-size:20px; margin-bottom:10px;}
-    .card p{margin:0; color:var(--muted); font-size:14px;}
-    .chip{
-      display:inline-block;
-      padding:7px 12px;
-      background:rgba(255,139,167,.18);
-      color:var(--primary);
-      border-radius:999px;
-      font-size:12px;
-      font-weight:700;
-      margin-bottom:14px;
-    }
-    .card:nth-child(2) .chip{background:rgba(94,198,255,.18); color:#1b5f8a;}
-    .card:nth-child(3) .chip{background:rgba(155,236,197,.2); color:#2f8052;}
-
-    .timeline{
-      display:grid;
-      gap:16px;
-      background:rgba(255,255,255,.88);
-      border-radius:24px;
-      padding:24px;
-      box-shadow:0 16px 32px rgba(35,48,65,.08);
-      border:1px solid rgba(0,0,0,.05);
-    }
-    .time-item{
-      display:grid;
-      grid-template-columns:120px 1fr;
-      gap:16px;
-      align-items:flex-start;
-    }
-    .time-item time{font-weight:800; color:var(--secondary); font-size:16px;}
-
-    .voices{
-      background:linear-gradient(180deg,rgba(94,198,255,.12),rgba(216,180,254,.16));
-    }
-    .bubbles{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:20px;
-    }
-    .bubble-card{
-      background:#fff;
-      border-radius:28px;
-      padding:26px;
-      box-shadow:0 18px 36px rgba(35,48,65,.1);
-      position:relative;
-      overflow:hidden;
-    }
-    .bubble-card::before{
-      content:"";
-      position:absolute;
-      width:80px;
-      height:80px;
-      top:-20px;
-      left:-20px;
-      background:radial-gradient(circle, rgba(255,139,167,.3), rgba(255,139,167,0));
-    }
-    .bubble-card:nth-child(2)::before{background:radial-gradient(circle, rgba(94,198,255,.3), rgba(94,198,255,0));}
-    .bubble-card:nth-child(3)::before{background:radial-gradient(circle, rgba(155,236,197,.32), rgba(155,236,197,0));}
-    .avatar{
-      width:54px;
-      height:54px;
-      border-radius:50%;
-      background:rgba(255,139,167,.2);
-      display:grid;
-      place-items:center;
-      font-size:26px;
-      margin-bottom:14px;
-    }
-    .bubble-card:nth-child(2) .avatar{background:rgba(94,198,255,.2);}
-    .bubble-card:nth-child(3) .avatar{background:rgba(155,236,197,.2);}
-    .bubble-card p{margin:0; color:var(--muted); font-size:14px;}
-    .bubble-card strong{display:block; margin-top:12px; font-size:15px; color:var(--ink);}
-
-    details{
-      background:#fff;
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:16px;
-      padding:16px 18px;
-      box-shadow:0 12px 24px rgba(35,48,65,.08);
-    }
-    details+details{margin-top:10px;}
-    summary{cursor:pointer; font-weight:800;}
-
-    form{display:grid; gap:14px;}
-    label{font-size:14px; font-weight:700;}
-    input, textarea{
-      width:100%;
-      padding:13px;
-      border-radius:14px;
-      border:1px solid rgba(0,0,0,.12);
-      font-family:inherit;
-      font-size:14px;
-      background:rgba(255,255,255,.95);
-      box-shadow:inset 0 2px 4px rgba(35,48,65,.04);
-    }
-    textarea{min-height:140px; resize:vertical;}
-    .form-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
-
-    .cta-banner{
-      background:linear-gradient(120deg,rgba(255,139,167,.32),rgba(94,198,255,.26));
-      color:#1e2432;
-    }
-    .cta-inner{
-      display:flex;
-      flex-wrap:wrap;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-    }
-    .cta-inner p{margin:0; max-width:520px; font-size:16px; color:#1f2534;}
-    .cta-banner h2{margin-bottom:8px;}
-
-    footer{
-      background:#16213b;
-      color:#f1f5ff;
-      padding:32px 0;
-    }
-    footer a{color:#ffe17d; text-decoration:underline;}
-
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr;}
-      .hero-illu{order:-1;}
-      .play-cards,.cards,.features,.mini-gallery,.bubbles{grid-template-columns:1fr 1fr;}
-    }
-    @media (max-width: 900px){
-      nav ul{display:none;}
-    }
-    @media (max-width: 720px){
-      .play-cards,.cards,.features,.mini-gallery,.bubbles{grid-template-columns:1fr;}
-      .form-row{grid-template-columns:1fr;}
-      .cta-inner{flex-direction:column; align-items:flex-start;}
-      .hero-illu .grid{grid-template-columns:1fr;}
-      .playmates{flex-wrap:wrap;}
-      .kid{flex:1 1 calc(50% - 8px);}
-    }
-    @media (max-width: 520px){
-      .kid{flex:1 1 100%;}
-      .hero h1{font-size:32px;}
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>高校生向け・ハッキング体験ラボ（学習用）</title>
+<style>
+  :root{
+    --bg:#0f1222;--card:#151a2f;--ink:#eef1ff;--sub:#a9add6;--ok:#1dd18c;--warn:#ffb02e;--bad:#ff5f7a;--acc:#7aa2ff
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#0d1020,#0e1530 45%,#0b1020);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,"Noto Sans JP",sans-serif}
+  header{padding:28px 16px;text-align:center;border-bottom:1px solid #243055}
+  header h1{margin:0 0 6px;font-size:28px}
+  header p{margin:0;color:var(--sub)}
+  main{max-width:1100px;margin:20px auto;padding:0 14px;display:grid;gap:12px}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  input,select,textarea,button{border-radius:12px;border:1px solid #2a355d;background:#0f1430;color:var(--ink)}
+  input,select,button{padding:10px 12px}
+  textarea{padding:10px 12px;min-height:90px;width:100%}
+  button{cursor:pointer;font-weight:600}
+  .btn{background:#1b2a62;border-color:#27428f}
+  .btn-ghost{background:transparent}
+  .btn-good{background:#183022;border-color:#245c3f}
+  .btn-bad{background:#2a1520;border-color:#4b293b}
+  .pill{display:inline-flex;align-items:center;gap:6px;border:1px solid #2a355d;padding:2px 8px;border-radius:999px}
+  .ok{color:var(--ok)} .bad{color:var(--bad)} .sub{color:var(--sub)}
+  .card{background:var(--card);border:1px solid #223059;border-radius:16px;overflow:hidden}
+  .card>header{display:flex;justify-content:space-between;align-items:center;background:#131939;padding:12px 14px;border-bottom:1px solid #223059}
+  .card>header h2{margin:0;font-size:18px}
+  .body{padding:14px;display:grid;gap:10px}
+  .out{background:#0b0f24;border:1px dashed #2a355d;border-radius:12px;padding:10px;min-height:44px}
+  .code{font-family:ui-monospace,SFMono-Regular,Consolas,Menlo,monospace;background:#0b0f24;border:1px solid #2a355d;border-radius:12px;padding:10px;overflow:auto}
+  details summary{cursor:pointer;user-select:none}
+  footer{padding:24px;text-align:center;color:var(--sub)}
+  .cols{display:grid;grid-template-columns:1.2fr .8fr;gap:12px}
+  @media (max-width:900px){.cols{grid-template-columns:1fr}}
+  .hudbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:10px}
+  .sep{border:none;border-top:1px solid #23325e;margin:4px 0}
+</style>
 </head>
 <body>
-  <header>
-    <div class="container nav" aria-label="トップナビゲーション">
-      <div class="brand">
-        <div class="brand-mark" aria-hidden="true">🌺</div>
-        <div>
-          <div style="font-size:14px; color:var(--muted); line-height:1">OHANA</div>
-          <div style="font-size:20px; font-weight:900">オハナ放課後児童クラブ</div>
-        </div>
-      </div>
-      <nav aria-label="サイト内メニュー">
-        <ul>
-          <li><a href="#about">はじめに</a></li>
-          <li><a href="#programs">プログラム</a></li>
-          <li><a href="#schedule">一日の流れ</a></li>
-          <li><a href="#features">安心・安全</a></li>
-          <li><a href="#faq">よくある質問</a></li>
-        </ul>
-      </nav>
-      <a class="cta-btn" href="#contact" aria-label="見学予約へ">見学予約</a>
-    </div>
-  </header>
+<header>
+  <h1>🔐 高校生向け・ハッキング体験ラボ</h1>
+  <p>“擬似サイト”で10種の脆弱性を安全に攻略。ヒント→実践→自動判定で学べます。</p>
+  <p class="sub" style="font-size:12px">※ この教材は<strong>学習専用</strong>です。実サービスに対する攻撃行為は絶対に行わないこと。</p>
+</header>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <h1>学校が終わったら、<br><span>オハナでワクワクタイム！</span></h1>
-        <p class="subtitle">小学<span aria-label="1年生から6年生">1〜6年生</span>対象のアフタースクール。ネイティブ講師と自然にふれあう“英語時間”と、宿題サポート・探究あそびで心も体も育てます。</p>
-        <p class="hero-note">🌈 放課後を「大好き」で埋めよう！</p>
-        <div class="badge-row" aria-label="オハナの基本情報">
-          <span class="badge">👧 対象：小1〜小6</span>
-          <span class="badge">👥 定員：<strong>15名以内</strong></span>
-          <span class="badge">🕒 アフタースクール</span>
-          <span class="badge">🗣 ネイティブ講師つき</span>
-          <span class="badge">💻 オプション：幼児向けプログラミング</span>
-        </div>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="#contact">見学を申し込む</a>
-          <a class="btn btn-secondary" href="#programs">プログラムを見る</a>
-        </div>
-      </div>
-      <div class="hero-illu" aria-label="活動イメージ">
-        <div class="tag">Today at OHANA</div>
-        <div class="grid" role="list">
-          <div class="mini-card" role="listitem">
-            <h4>English Fun Time</h4>
-            <p>ネイティブ講師とゲームで英語表現に親しむ</p>
-          </div>
-          <div class="mini-card" role="listitem">
-            <h4>Homework Support</h4>
-            <p>学年別テーブルで集中して宿題を片付け</p>
-          </div>
-          <div class="mini-card" role="listitem">
-            <h4>Creative Play</h4>
-            <p>クラフト・ボードゲーム・外遊びも</p>
-          </div>
-          <div class="mini-card" role="listitem">
-            <h4>Explore & Share</h4>
-            <p>今日の「できた！」をミニ発表で共有</p>
-          </div>
-        </div>
-        <div class="playmates" aria-hidden="true">
-          <div class="kid">
-            <span>🎨</span>
-            <strong>クラフトデー</strong>
-            <small>色とりどりの作品づくり</small>
-          </div>
-          <div class="kid">
-            <span>🧪</span>
-            <strong>サイエンス実験</strong>
-            <small>わくわく実験で大発見</small>
-          </div>
-          <div class="kid">
-            <span>🎶</span>
-            <strong>English Song</strong>
-            <small>歌って踊って英語チャレンジ</small>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<main id="app"></main>
 
-  <section class="section-fun" aria-label="OHANAのワクワクポイント">
-    <div class="container">
-      <div class="fun-header">
-        <h2>ワクワクいっぱい！OHANAの魅力</h2>
-        <p class="lead">遊ぶ・学ぶ・チャレンジする時間がぎゅっと詰まった放課後。子どもたちが「また行きたい！」と言ってくれる仕掛けをたくさん用意しています。</p>
-      </div>
-      <div class="play-cards" role="list">
-        <article class="play-card" role="listitem">
-          <div class="play-icon">🎉</div>
-          <h3>曜日ごとのテーマ遊び</h3>
-          <p>探究クラフト・サイエンス実験・ボードゲームデーなど、毎日違うテーマでドキドキを体験。</p>
-        </article>
-        <article class="play-card" role="listitem">
-          <div class="play-icon">🌎</div>
-          <h3>英語でおしゃべりチャレンジ</h3>
-          <p>ネイティブ講師と遊びながら、自分の好きなことを伝える力を育てます。</p>
-        </article>
-        <article class="play-card" role="listitem">
-          <div class="play-icon">🤸</div>
-          <h3>からだもこころもリフレッシュ</h3>
-          <p>外遊び・ダンス・ヨガストレッチでエネルギー発散。お友だちとの協力も自然と生まれます。</p>
-        </article>
-      </div>
-      <div class="mini-gallery" role="list">
-        <div class="gallery-item" role="listitem">
-          <span>🌈</span>
-          <strong>カラフルガーデン</strong>
-          <p>校庭の一角をみんなでお花いっぱいに育てています。</p>
-        </div>
-        <div class="gallery-item" role="listitem">
-          <span>🧠</span>
-          <strong>ひらめきミッション</strong>
-          <p>チームで謎解きやSTEAM課題に挑戦する人気プログラム。</p>
-        </div>
-        <div class="gallery-item" role="listitem">
-          <span>🎵</span>
-          <strong>ミニステージ</strong>
-          <p>好きな歌や英語スピーチを発表して、自信アップ！</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<footer>© エシカルハッキング学習用 | バージョン: classroom-missions (no-score)</footer>
 
-  <section id="about" class="section-soft">
-    <div class="container">
-      <h2>オハナについて</h2>
-      <p class="lead">“Ohana”はハワイの言葉で「家族」。私たちは、放課後の時間を「安心・あたたかさ・挑戦」で満たし、子どもたち一人ひとりの「好き」と「できた」を増やします。</p>
-      <div class="features" style="margin-top:18px">
-        <div class="feature">
-          <div class="icon">🧑‍🏫</div>
-          <div>
-            <strong>英語にふれる毎日</strong>
-            <div class="note">ネイティブ講師が常駐。あいさつや遊びの中で楽しく英語をインプット・アウトプット。</div>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="icon">📚</div>
-          <div>
-            <strong>学習サポート</strong>
-            <div class="note">宿題タイムを設定し、ていねいに見守り。学ぶ習慣づくりを大切にします。</div>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="icon">🤝</div>
-          <div>
-            <strong>少人数・個性重視</strong>
-            <div class="note">定員15名以内。小さなコミュニティで互いを尊重し合う関係を育てます。</div>
-          </div>
-        </div>
-        <div class="feature">
-          <div class="icon">🧩</div>
-          <div>
-            <strong>探究あそび</strong>
-            <div class="note">クラフト・実験・ボードゲーム・外遊びなど、多彩なアクティビティで「非認知能力」も伸ばします。</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<script>
+/* ========= ユーティリティ ========= */
+const $ = s => document.querySelector(s);
+const el = (tag, attrs={}, children=[])=>{
+  const n=document.createElement(tag);
+  for(const[k,v] of Object.entries(attrs)){
+    if(k==='class') n.className=v;
+    else if(k.startsWith('on') && typeof v==='function') n.addEventListener(k.slice(2),v);
+    else n.setAttribute(k,v);
+  }
+  (Array.isArray(children)?children:[children]).forEach(c=>n.append(c instanceof Node?c:document.createTextNode(c)));
+  return n;
+};
+const sanitize = (s)=>{const d=document.createElement('div'); d.innerText=s; return d.innerHTML;};
+const storage = {
+  get(k,def){ try{ return JSON.parse(localStorage.getItem(k)) ?? def }catch{ return def } },
+  set(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)) }catch{} }
+};
+const rand = () => Math.random().toString(36).slice(2);
 
-  <section id="programs" class="section-white">
-    <div class="container">
-      <h2>プログラム</h2>
-      <p class="lead">日々の学童プログラムに加え、英語アクティビティ、ご希望に応じて<strong>幼児向けプログラミング（オプション）</strong>もご用意。</p>
-      <div class="cards" role="list">
-        <article class="card" role="listitem">
-          <span class="chip">毎日</span>
-          <h3>学童・生活サポート</h3>
-          <p>下校後の受け入れ／宿題サポート／おやつ／自由遊び／読み聞かせ など。生活の安心を第一に、好奇心を引き出します。</p>
-        </article>
-        <article class="card" role="listitem">
-          <span class="chip">英語 × あそび</span>
-          <h3>English Activity（ネイティブ）</h3>
-          <p>歌・ゲーム・会話を通じてナチュラルな表現に親しみます。発表やミニショー＆テルで、伝える力も育てます。</p>
-        </article>
-        <article class="card" role="listitem">
-          <span class="chip">オプション</span>
-          <h3>幼児向けプログラミング</h3>
-          <p>未就学児（ごきょうだい等）向けに、タブレットやビジュアル教材で「順番」「形づくり」など考える土台を楽しく学びます。</p>
-        </article>
-      </div>
-    </div>
-  </section>
+/* ========= プレイヤー / 進捗のみ（スコアなし） ========= */
+const LAB_KEY = "hs_lab_progress_v1_noscore";
+const state = storage.get(LAB_KEY, {
+  player: null,         // {name, id}
+  solved: {},           // {missionId: true}
+  startedAt: Date.now()
+});
+function save(){ storage.set(LAB_KEY, state); }
+function ensurePlayerUI(container){
+  const row = el('div',{class:'row'},[
+    el('input',{id:'playerName',placeholder:'ニックネーム（例: たろう）',value:state.player?.name||''}),
+    el('button',{class:'btn',onclick:()=>{
+      const name = $('#playerName').value.trim().slice(0,20)||`player_${rand().slice(0,4)}`;
+      state.player = {name, id: state.player?.id || rand()};
+      save(); renderHud();
+    }},["参加 / 更新"]),
+    el('button',{class:'btn-ghost',onclick:()=>{localStorage.removeItem(LAB_KEY); location.reload();}},["リセット"])
+  ]);
+  container.append(row);
+}
+function markSolved(id){
+  if(!state.solved[id]){
+    state.solved[id]=true;
+    save();
+    renderHud();
+    const tag = document.querySelector(`#m${id} header .sub`);
+    if(tag) tag.textContent = "✅ クリア済";
+  }
+}
+function renderHud(){
+  const hud = $("#hud");
+  if(!hud) return;
+  hud.innerHTML="";
+  const total = 10;
+  const solvedCount = Object.keys(state.solved).length;
+  hud.append(
+    el('div',{class:'hudbar'},[
+      el('span',{class:'pill'},["👤 ", state.player?.name || "未参加"]),
+      el('span',{class:'pill'},[`✅ クリア: ${solvedCount}/${total}`]),
+      el('button',{class:'btn-ghost',onclick:()=>alert(
+        "遊び方：\n1) 目的を読んで“擬似サイト”を操作\n2) 条件を満たすと自動でクリア（バッジ表示）\n3) ヒントは段階式（減点要素なし）"
+      )},["ℹ️ 遊び方"])
+    ])
+  );
+}
 
-  <section id="schedule" class="section-soft schedule-section">
-    <div class="container">
-      <h2>一日の流れ（例）</h2>
-      <p class="lead">曜日や季節行事により変更があります。詳細は見学時にご案内します。</p>
-      <div class="timeline">
-        <div class="time-item">
-          <time>14:00〜</time>
-          <div>受け入れ開始・手洗い・健康チェック／リラックスタイム</div>
-        </div>
-        <div class="time-item">
-          <time>15:30</time>
-          <div>宿題タイム（学年別テーブル）／読書</div>
-        </div>
-        <div class="time-item">
-          <time>16:00</time>
-          <div>English Activity（ネイティブ講師）</div>
-        </div>
-        <div class="time-item">
-          <time>17:00</time>
-          <div>自由遊び・クラフト・外遊び</div>
-        </div>
-        <div class="time-item">
-          <time>18:00〜</time>
-          <div>お迎え</div>
-        </div>
-      </div>
-      <p class="note" style="margin-top:10px">※長期休みは特別カリキュラムや遠足などを実施する場合があります。</p>
-    </div>
-  </section>
+/* ========= 共通: ミッションカード（点数表示なし） ========= */
+function missionCard(id, title, build){
+  const card = el('section',{class:'card', id:`m${id}`},[
+    el('header',{},[
+      el('h2',{},[`${id}. ${title}`]),
+      el('div',{},[
+        el('span',{class:'pill sub'},[ state.solved[id] ? "✅ クリア済" : "未クリア" ])
+      ])
+    ]),
+    el('div',{class:'body'})
+  ]);
+  build(card.querySelector('.body'), ()=>markSolved(id));
+  return card;
+}
 
-  <section class="voices" aria-label="子どもたちと保護者の声">
-    <div class="container">
-      <h2>通っているみんなの声</h2>
-      <p class="lead">OHANAには「また行きたい！」を生むひみつがいっぱい。</p>
-      <div class="bubbles">
-        <div class="bubble-card">
-          <div class="avatar" aria-hidden="true">🧒</div>
-          <p>英語のゲームで笑っているうちに、新しい言葉がたくさん言えるようになったよ！</p>
-          <strong>小学2年・Aちゃん</strong>
-        </div>
-        <div class="bubble-card">
-          <div class="avatar" aria-hidden="true">👦</div>
-          <p>宿題タイムがあるからお迎えまでに全部終わる！帰ったら家族で遊ぶ時間が増えました。</p>
-          <strong>小学4年・Rくん</strong>
-        </div>
-        <div class="bubble-card">
-          <div class="avatar" aria-hidden="true">👩‍👧</div>
-          <p>先生が日々の様子をこまめに伝えてくださるので安心。季節イベントも家族で楽しみにしています。</p>
-          <strong>保護者の方より</strong>
-        </div>
-      </div>
-    </div>
-  </section>
+/* ========= 各ミッション ========= */
+const app = $("#app");
 
-  <section id="features" class="section-white">
-    <div class="container">
-      <h2>安心・安全への取り組み</h2>
-      <div class="features" style="margin-top:10px">
-        <div class="feature"><div class="icon">🛡️</div><div><strong>見守り体制</strong><div class="note">入退室チェック・連絡体制の明確化・最大15名の少人数で安全に配慮。</div></div></div>
-        <div class="feature"><div class="icon">🏠</div><div><strong>学年別ゾーニング</strong><div class="note">集中しやすい学習スペース／のびのび遊べるスペースを分けています。</div></div></div>
-        <div class="feature"><div class="icon">🧯</div><div><strong>衛生・防災</strong><div class="note">定期清掃・手洗い指導・避難訓練の実施。備蓄品の確認も行います。</div></div></div>
-        <div class="feature"><div class="icon">👨‍👩‍👧‍👦</div><div><strong>家庭との連携</strong><div class="note">日々の様子を共有。面談や個別相談で一人ひとりをより丁寧にサポート。</div></div></div>
-      </div>
-    </div>
-  </section>
+/* HUD + 参加 */
+app.append(el('section',{class:'card'},[
+  el('header',{},[ el('h2',{},["⚙️ 参加設定・進捗"]), el('span',{id:'hud'}) ]),
+  el('div',{class:'body'},[
+    (()=>{
+      const c = el('div',{}); ensurePlayerUI(c); return c;
+    })()
+  ])
+]));
+renderHud();
 
-  <section id="faq" class="section-soft">
-    <div class="container">
-      <h2>よくある質問</h2>
-      <details>
-        <summary>対象年齢は？</summary>
-        <div>小学校<span aria-label="1年生から6年生">1〜6年生</span>です。見学は年中・年長のごきょうだい同伴も歓迎です。</div>
-      </details>
-      <details>
-        <summary>定員は？</summary>
-        <div>最大15名以内です（少人数制）。状況によりウェイティングとなる場合があります。</div>
-      </details>
-      <details>
-        <summary>ネイティブ講師は常駐ですか？</summary>
-        <div>英語アクティビティ時間を中心に、日々のコミュニケーションにも参加します。</div>
-      </details>
-      <details>
-        <summary>幼児向けプログラミングの対象は？</summary>
-        <div>未就学児（ごきょうだい等）向けの<strong>オプション</strong>です。個別に日程をご相談ください。</div>
-      </details>
-      <details>
-        <summary>開所日・料金は？</summary>
-        <div>最新の開所日・料金は見学時またはお問い合わせにてご案内します。</div>
-      </details>
-    </div>
-  </section>
+/* M1: Reflected XSS を起こせ（アラートを出す） */
+app.append(missionCard(1,"Reflected XSS：アラートを出そう",(body, solved)=>{
+  const input = el('input',{placeholder:"例:"});
+  const show  = el('button',{class:'btn'},["表示"]);
+  const out   = el('div',{class:'out'},"ここに表示されます");
+  show.onclick = ()=>{
+    out.innerHTML = "あなたの入力: " + input.value; // わざと脆弱
+    if(out.querySelector("script")) { solved(); alert("🎉 ミッションクリア！（反射XSS）"); }
+  };
+  body.append(
+    el('p',{},["目的：入力をそのまま表示する欄で、スクリプトを実行させる。"]),
+    el('div',{class:'row'},[input,show]),
+    out,
+    el('details',{},[
+      el('summary',{},["ヒント"]),
+      el('div',{},[
+        el('br'), "ヒント：img の onerror などでも可能（例：", el('span',{class:'code'},["<img src=x >"]), "）。"
+      ])
+    ])
+  );
+}));
 
-  <section class="cta-banner" aria-label="季節イベントのご案内">
-    <div class="container cta-inner">
-      <div>
-        <h2>季節イベントも見学できます！</h2>
-        <p>サマーフェスやハロウィンパーティーなど、子どもが主役のイベントを毎シーズン開催。初めての方もお気軽にどうぞ。</p>
-      </div>
-      <a class="btn btn-primary" href="#contact">イベントの相談をする</a>
-    </div>
-  </section>
+/* M2: Stored XSS を発生させる（擬似DB: localStorage） */
+app.append(missionCard(2,"Stored XSS：保存した投稿で実行",(body, solved)=>{
+  const ta = el('textarea',{placeholder:"コメントを投稿（例: <img src=x onerror=alert('hi')>）"});
+  const saveBtn = el('button',{class:'btn'},["投稿"]);
+  const list = el('div',{class:'out'});
+  function render(){
+    const items = storage.get("m2_comments",[]);
+    list.innerHTML="";
+    items.forEach(html=>{
+      const item = el('div',{class:'code'});
+      item.innerHTML = html; // わざと脆弱
+      list.append(item);
+      if(item.querySelector("script") || item.querySelector("[onerror],[onload]")){
+        solved();
+      }
+    });
+  }
+  saveBtn.onclick = ()=>{
+    const items = storage.get("m2_comments",[]);
+    items.push(ta.value);
+    storage.set("m2_comments",items);
+    ta.value=''; render();
+  };
+  body.append(
+    el('p',{},["目的：保存済みの投稿を表示したときにスクリプトが動けば成功。"]),
+    ta, el('div',{class:'row'},[saveBtn, el('button',{class:'btn-ghost',onclick:()=>{localStorage.removeItem("m2_comments"); render();}},["全削除"])]),
+    list,
+    el('details',{},[
+      el('summary',{},["ヒント"]),
+      "ヒント：img のエラー時ハンドラ（onerror）に注目。"
+    ])
+  ); render();
+}));
 
-  <section id="contact" class="section-white">
-    <div class="container">
-      <h2>見学・お問い合わせ</h2>
-      <p class="lead">まずはお気軽にお問い合わせください。フォーム送信のほか、お電話・LINEでもどうぞ。</p>
-      <form action="mailto:info@example.com" method="post" enctype="text/plain" aria-label="お問い合わせフォーム">
-        <div class="form-row">
-          <div>
-            <label for="name">お名前</label>
-            <input id="name" name="お名前" required placeholder="例）山田 花子" />
-          </div>
-          <div>
-            <label for="email">メール</label>
-            <input id="email" type="email" name="メール" required placeholder="hanako@example.com" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div>
-            <label for="tel">お電話番号（任意）</label>
-            <input id="tel" name="電話" placeholder="090-xxxx-xxxx" />
-          </div>
-          <div>
-            <label for="visit">見学希望（任意）</label>
-            <input id="visit" name="見学希望日" placeholder="例）10/10 16:00 など" />
-          </div>
-        </div>
-        <div>
-          <label for="msg">ご質問・ご要望</label>
-          <textarea id="msg" name="メッセージ" placeholder="お子さまの学年・通学校名など"></textarea>
-        </div>
-        <button class="btn btn-primary" type="submit">送信する</button>
-        <span class="note">※ 実運用では各種フォームサービスのご利用をおすすめします。</span>
-      </form>
-    </div>
-  </section>
+/* M3: DOM XSS（URLハッシュ # 由来） */
+app.append(missionCard(3,"DOM XSS：URLハッシュで改ざん",(body, solved)=>{
+  const out = el('div',{class:'out'},"URLの # 以降がそのままここに表示されます。");
+  async function copySample() {
+    const sample = location.origin + location.pathname + "#<img src=x onerror=alert('dom')>";
+    try {
+      await navigator.clipboard.writeText(sample);
+      alert("サンプルURLをコピーしました。ブラウザのアドレス欄に貼ってアクセスしてみよう。");
+    } catch {
+      prompt("このURLをコピーして使ってください👇", sample);
+    }
+  }
+  function apply(){
+    const raw = decodeURIComponent(location.hash.slice(1));
+    out.innerHTML = raw || "（ハッシュなし）"; // わざと脆弱
+    if(out.querySelector("script") || out.querySelector("[onerror],[onload]")) solved();
+  }
+  const copyLink = el('button',{class:'btn-ghost',onclick:copySample},["サンプルURLをコピー"]);
+  window.addEventListener('hashchange',apply);
+  body.append(el('p',{},["目的：# の後ろにペイロードを入れて遷移し、表示領域でスクリプト実行を狙う。"]), copyLink, out);
+  apply();
+}));
 
-  <footer>
-    <div class="container">
-      <div style="display:flex; align-items:flex-start; gap:16px; flex-wrap:wrap; justify-content:space-between">
-        <div>
-          <div style="font-weight:800; font-size:18px">オハナ放課後児童クラブ</div>
-          <div class="note">〒000-0000 ○○県○○市○○町0-0（仮）／ 開所日・料金はお問い合わせください。</div>
-        </div>
-        <div class="note">© <span id="year"></span> OHANA After School</div>
-      </div>
-    </div>
-  </footer>
+/* M4: HTMLインジェクション（見出しを勝手に追加） */
+app.append(missionCard(4,"HTMLインジェクション：UI改ざん",(body, solved)=>{
+  const input = el('input',{placeholder:"例: <h3 style='color:gold'>勝手な見出し</h3>"});
+  const prev = el('button',{class:'btn'},["プレビュー"]);
+  const area = el('div',{class:'out'});
+  prev.onclick = ()=>{
+    area.innerHTML = input.value; // わざと脆弱
+    if(area.querySelector("h1,h2,h3,h4,h5,h6")) solved();
+  };
+  body.append(
+    el('p',{},["目的：任意の見出しやボタンを埋め込み、見た目を改ざんできたら成功。"]),
+    el('div',{class:'row'},[input,prev]),
+    area
+  );
+}));
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e=>{
-        const id = a.getAttribute('href');
-        if(id.length > 1){
-          const el = document.querySelector(id);
-          if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
-        }
-      })
-    })
-  </script>
+/* M5: SQL Injection（超簡易シミュレータ） */
+app.append(missionCard(5,"SQLi：' OR '1'='1 で全件取得",(body, solved)=>{
+  const users = [
+    {id:1, name:"Taro", username:"taro"},
+    {id:2, name:"Hanako", username:"hanako"},
+    {id:3, name:"Ichiro", username:"ichiro"}
+  ];
+  const q = el('input',{placeholder:"例: ' OR '1'='1"});
+  const btn = el('button',{class:'btn'},["検索"]);
+  const out = el('div',{class:'out'});
+  btn.onclick = ()=>{
+    const term = q.value;
+    // わざと脆弱：疑似SQL連結ロジック
+    const all = /'?\s*OR\s*'1'\s*=\s*'1/i.test(term);
+    const res = all ? users : users.filter(u=> (u.username+u.name).toLowerCase().includes(term.toLowerCase()));
+    out.innerHTML = res.map(u=>`<span class="pill">#${u.id} ${sanitize(u.name)} (@${sanitize(u.username)})</span>`).join(" ");
+    if(all) solved();
+  };
+  body.append(
+    el('p',{},["目的：条件を真にして全件が表示されるようにする。"]),
+    el('div',{class:'row'},[q,btn]), out,
+    el('details',{},[el('summary',{},["ヒント"]), "ヒント：", el('span',{class:'code'},["' OR '1'='1"])])
+  );
+}));
+
+/* M6: CSRF（トークンなし送金を成立させる） */
+app.append(missionCard(6,"CSRF：外部操作で送金",(body, solved)=>{
+  let balance = storage.get("m6_balance", 10000);
+  function saveBal(){ storage.set("m6_balance", balance); bal.textContent = `口座残高: ¥${balance.toLocaleString()}`; }
+  const bal = el('div',{class:'out'});
+  const normal = el('button',{class:'btn'},["正規：¥500 寄付"]);
+  const attacker = el('button',{class:'btn-bad'},["攻撃ページ：こっそり送金"]);
+  normal.onclick = ()=>{ balance -= 500; saveBal(); };
+  attacker.onclick = ()=>{ balance -= 500; saveBal(); solved(); alert("🎉 送金が実行されました（トークンなし）。"); };
+  body.append(el('p',{},["目的：ユーザーの意思に反して送金を成立させる（疑似動作）。"]), bal, el('div',{class:'row'},[normal,attacker]),
+    el('details',{},[el('summary',{},["ヒント"]), "ヒント：imgタグやリンク踏みなど、ユーザー操作に見せかけた自動送信を想像してみよう。"])
+  );
+  saveBal();
+}));
+
+/* M7: クリックジャッキング（透明UIで誤クリック） */
+app.append(missionCard(7,"クリックジャッキング：隠しボタンを押させる",(body, solved)=>{
+  const box = el('div',{class:'out',style:"position:relative;height:140px"});
+  const bait = el('button',{style:"position:absolute;left:12px;top:12px"},["見た目のボタン"]);
+  const hidden = el('button',{style:"position:absolute;left:48%;top:50%"},["（隠し）承認"]);
+  const overlay = el('a',{href:"#",style:"position:absolute;inset:0;opacity:.01"},["　"]); // ほぼ見えない
+  hidden.addEventListener('click',()=>{ solved(); alert("🎉 隠しボタンが押されました！"); });
+  box.append(bait, hidden, overlay);
+  body.append(
+    el('p',{},["目的：透明のレイヤー越しに、ユーザーに見えない操作をさせる仕組みを体験。"]),
+    box
+  );
+}));
+
+/* M8: オープンリダイレクト（任意URLへ遷移させる） */
+app.append(missionCard(8,"オープンリダイレクト：任意サイトへ飛ばす",(body, solved)=>{
+  const input = el('input',{placeholder:"例: https://example.org/phish"});
+  const go = el('button',{class:'btn'},["移動"]);
+  go.onclick = ()=>{
+    const u = input.value.trim();
+    if(!u) return;
+    // わざと脆弱：ホスト名の検証なし（実際の遷移は行わない）
+    try{ new URL(u); }catch{ return alert("URLが不正"); }
+    solved();
+    alert("🎉 ミッションクリア！（実際の遷移は行いません）");
+  };
+  body.append(
+    el('p',{},["目的：自由入力を使って、任意の外部URLへ遷移できる状況を再現する。"]),
+    el('div',{class:'row'},[input,go]),
+    el('div',{class:'sub'},["※ 安全面の都合で実遷移はしない実装です。"])
+  );
+}));
+
+/* M9: IDOR（他人のプロフィールを取得） */
+app.append(missionCard(9,"IDOR：他人の情報を見てしまう",(body, solved)=>{
+  const users = [
+    {id:1, name:"Taro", secret:"🍰好き"},
+    {id:2, name:"Hanako", secret:"📚好き"},
+    {id:3, name:"Ichiro", secret:"⚽️好き"}
+  ];
+  const login = users[0]; // Taroでログイン中
+  const input = el('input',{type:'number',min:1,placeholder:"ユーザーID（例: 2）"});
+  const btn = el('button',{class:'btn'},["取得"]);
+  const out = el('div',{class:'out'});
+  btn.onclick = ()=>{
+    const id = Number(input.value);
+    const target = users.find(u=>u.id===id);
+    if(!target) { out.textContent="該当なし"; return; }
+    // わざと脆弱：認可チェックしない
+    out.textContent = `閲覧中: ${target.name} (${target.secret})`;
+    if(id !== login.id) solved();
+  };
+  body.append(
+    el('p',{},["目的：自分以外のIDを指定して、情報が見えてしまう状態を再現。"]),
+    el('div',{class:'row'},[input,btn]),
+    out
+  );
+}));
+
+/* M10: アップロード検証不備（拡張子偽装） */
+app.append(missionCard(10,"アップロード検証：拡張子偽装を通す",(body, solved)=>{
+  const inp = el('input',{type:'file'});
+  const out = el('div',{class:'out'},"拡張子だけで判定する擬似サーバ。");
+  inp.addEventListener('change',()=>{
+    const f = inp.files?.[0];
+    if(!f) return;
+    // わざと脆弱：拡張子だけを見る
+    const ok = /\.(png|jpg|jpeg|gif)$/i.test(f.name);
+    out.textContent = ok ? `✅ 受理: ${f.name}` : `❌ 拒否: ${f.name}`;
+    if(ok && /\.php|\.exe|\.html/i.test(f.name.replace(/\.(png|jpg|jpeg|gif)$/i,''))){
+      // 例: attack.php.jpg → 受理されてしまったら成功扱い
+      solved(); alert("🎉 ミッションクリア！（偽装拡張子が通ってしまった）");
+    }
+  });
+  body.append(
+    el('p',{},["目的：", el('span',{class:'code'},["attack.php.jpg"]), " のような名前で“通過”させる体験をする（※実ファイルは送信しません）。"]),
+    inp, out
+  );
+}));
+
+/* ========= 学習のまとめ ========= */
+app.append(el('section',{class:'card'},[
+  el('header',{},[el('h2',{},["📚 学びのポイントまとめ"]), el('span',{class:'pill'},["OWASP Top 10 に接続"]) ]),
+  el('div',{class:'body cols'},[
+    el('div',{},[
+      el('p',{},["・XSS：innerHTMLに入れない。エスケープ・テンプレート・CSP。"]),
+      el('p',{},["・SQLi：文字列連結禁止、必ずプリペアドステートメント。"]),
+      el('p',{},["・CSRF：CSRFトークン、SameSite Cookie、確認ダイアログ。"]),
+      el('p',{},["・Clickjacking：", el('span',{class:'code'},["X-Frame-Options, frame-ancestors"]), "。"]),
+      el('p',{},["・Open Redirect：相対パス/許可ドメインのみに限定。"]),
+      el('p',{},["・IDOR：オブジェクト参照の前に認可チェック。"]),
+      el('p',{},["・Upload：MIME/シグネチャ検査、再エンコード、実行不可領域へ保存。"])
+    ]),
+    el('div',{},[
+      el('p',{class:'sub'},["授業での使い方："]),
+      el('p',{},["1) 10〜15分 自由攻略 → 2) 5分 ふりかえりスクショ → 3) 15分 対策コード例紹介 → 4) 5分 小テスト"]),
+      el('p',{},["先生用：進捗はバッジ表示のみ（スコアなし）。"])
+    ])
+  ])
+]));
+
+/* 初期レンダリング */
+renderHud();
+</script>
 </body>
 </html>
